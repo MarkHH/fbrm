@@ -1,0 +1,154 @@
+body,
+html {
+margin:0;
+padding:0;
+color:#000;
+background:white;
+}
+
+#wrap {x
+width:1000px;
+margin:0 auto;
+background:white;
+border-style:solid;
+
+}
+
+#header {
+background:white;
+width:1000px;
+padding:5px 10px;
+margin: 0px; 
+}
+
+#nav {
+background:#FDD017;
+padding:5px 10px;
+border-bottom: 2px solid blue
+}
+
+#nav ul {
+	text-align:right;
+	word-spacing:30px;
+}
+
+#nav p {
+	text-align:left;
+}
+
+
+label {
+    display:block;
+    padding-bottom:5px;
+    margin-top:20px;
+}
+ 
+#remindmeform {
+    overflow:hidden;
+}
+ 
+#remindmeform li {
+    list-style:none;
+    padding-bottom:20px;
+}
+
+
+/*Textfield style*/
+#remindmeform li .fieldbox {
+    background:transparent url(http://fbremindme.com/images/subfield.jpg) no-repeat top left;
+    float:left;
+    height:27px;
+    padding-left:5px;
+}
+ 
+#remindmeform li .fieldbox input {
+    background:transparent url(http://fbremindme.com/images/subfield.jpg) no-repeat top right;
+    height:27px;
+    padding-top:5px;
+    width:400px;
+	border: 0;
+}
+/*Change the width of the contact no. field
+#remindmeform li .fieldbox #when {
+    width:200px;
+}*/
+
+/*Textarea style*/
+#remindmeform li .msgbox {
+    background:transparent url(http://fbremindme.com/images/msgfield.jpg) no-repeat top left;
+    float:left;
+    height:110px;
+    padding-left:5px;
+}
+ 
+#remindmeform li .msgbox textarea {
+    background:transparent url(http://fbremindme.com/images/msgfield.jpg)  no-repeat top right ;
+    height:110px;
+    padding-top:5px;
+    width:400px;    
+	border: 0;
+}
+/*Button Style*/
+#sendbutton {
+    background:#acb4cb; color:#fff;
+    cursor:pointer;
+    padding:5px 10px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px
+}
+
+
+
+#footer {
+clear:both;
+background:#cc9;
+padding:5px 10px;
+
+}
+
+#footer p {
+margin:0;
+}
+
+h1 {
+margin:0;
+}
+
+h2 {
+	margin:0;
+}
+
+/* To make the two columns (#main and #sidebar) display side by side we float them, 
+one to the left and the other to the right. We also specify the widths of the columns. 
+
+Note that the sum of the widths should be equal to the width given to #wrap in Step 3.
+
+This will make #sidebar appear to the right of #main, but the footer is not where it should be.
+
+*/
+
+#main {
+float:left;
+width:440px;
+background:white;
+padding:10px;
+}
+
+#submit {
+	float:right;
+	width:520px;
+	background:white;
+	padding:10px;
+}
+
+#nav ul {
+margin:0;
+padding:0;
+list-style:none;
+}
+#nav li {
+display:inline;
+margin:0;
+padding:0;
+}
+

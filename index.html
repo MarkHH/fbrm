@@ -8,23 +8,26 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Le styles -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">>
+	<html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+	<head>
+	<meta property="og:image" content="http://fbremindme.com/images/200px.jpg" /> 
+	<meta property="og:site_name" content="RemindMe" /> 
+	<meta property="og:title" content="RemindMe" /> 
+	<meta property="og:url" content="http://fbremindme.com" /> 
+	<meta property="og:description" content="Your friends won't let you forget!" /> 
+	<meta property="og:type" content="website" /> 
+	<meta property="fb:admins" content="583772692" /> 
 
-	    <script type="text/javascript" src="bootstrap/js/jquery.lettering-0.6.min.js"></script>
-	    <script type="text/javascript" src="bootstrap/js/bootstrap-carousel.js"></script>
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link rel=stylesheet type="text/css" href="css/anytime.css" />
+	
+	   <!-- <script type="text/javascript" src="js/jquery.lettering-0.6.min.js"></script> 
+	    <script type="text/javascript" src="js/bootstrap-carousel.js"></script>
 	    <script type="text/javascript">
 	      $('.carousel').carousel()
-	    </script>  
-	    <script type="text/javascript">
-	      $('#myTab a').click(function (e) {
-	        e.preventDefault();
-	        $(this).tab('show');
-	      })
-	    </script>
-		<link rel=stylesheet type="text/css" href="anytime.css" />
-			<script src="bootstrap/js/jquery.js"></script>
-			<script src="bootstrap/js/anytime.js"></script>   
+	    </script>  -->
+	
 	
 	
 	  </head>
@@ -36,7 +39,6 @@
 
     <div class="container">
 	
-		 <div id="fb-root"></div>
 		<div id="fb-root"></div>
 		        <script type="text/javascript">
 		            window.fbAsyncInit = function() {
@@ -191,9 +193,13 @@
 						<div class="span5">
 						          <h2>Choose a goal. Get your friends to help you achieve it.</h2>
 						           <p>FB Remind me helps you stay on track of achieving your goal by reminding your friends about it. You set the goal, we'll remind you (and your buddies) that you said you were going to do it. </p>
-						
+				
+				
+					<div class="fb-login-button" scope="email,user_checkins">Login with Facebook</div>
 						        
 						        </div>
+							
+						
 						        <div class="span6">
 						          <h2>Remind me too...</h2>
 						           <form class="well">
@@ -258,7 +264,13 @@
       <hr>
 
       <footer>
-        <p>&copy; Company 2012</p>
+        <p>&copy; S&M 2012</p>
+
+		<p><div id="fblike">
+				<iframe src="https://www.facebook.com/plugins/like.php?href=http://www.fbremindme.com"
+				        scrolling="no" frameborder="0"
+				        style="border:none; width:450px; height:80px"></iframe>
+				</div></p>
       </footer>
 
     </div> <!-- /container -->
@@ -266,19 +278,28 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="bootstrap/js/jquery.js"></script>
-    <script src="bootstrap/js/bootstrap-transition.js"></script>
-    <script src="bootstrap/js/bootstrap-alert.js"></script>
-    <script src="bootstrap/js/bootstrap-modal.js"></script>
-    <script src="bootstrap/js/bootstrap-dropdown.js"></script>
-    <script src="bootstrap/js/bootstrap-scrollspy.js"></script>
-    <script src="bootstrap/js/bootstrap-tab.js"></script>
-    <script src="bootstrap/js/bootstrap-tooltip.js"></script>
-    <script src="bootstrap/js/bootstrap-popover.js"></script>
-    <script src="bootstrap/js/bootstrap-button.js"></script>
-    <script src="bootstrap/js/bootstrap-collapse.js"></script>
-    <script src="bootstrap/js/bootstrap-carousel.js"></script>
-    <script src="bootstrap/js/bootstrap-typeahead.js"></script> 
+    <script src="js/jquery.js"></script>
+	<script src="js/anytime.js"></script>  
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script> 
+
+	
+	    <script type="text/javascript">
+	      $('#myTab a').click(function (e) {
+	        e.preventDefault();
+	        $(this).tab('show');
+	      })
+	    </script>
 
 	<script>
 	  AnyTime.picker( "when",
