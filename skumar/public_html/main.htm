@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+    <head>
+	<LINK REL=StyleSheet HREF="styles.css" TYPE="text/css">
+      <title>RemindMe</title>
+    </head>
+    <body>
+	<div id="wrap">
+
+      <div id="fb-root"></div>
+	<div id="fb-root"></div>
+	        <script type="text/javascript">
+	            window.fbAsyncInit = function() {
+	                FB.init({appId: '417146754976486', status: true, cookie: true, xfbml: true});
+
+	                /* All the events registered */
+	                FB.Event.subscribe('auth.login', function(response) {
+	                    // do something with response
+	                    login();
+	                });
+	                FB.Event.subscribe('auth.logout', function(response) {
+	                    // do something with response
+	                    logout();
+	                });
+
+	                FB.getLoginStatus(function(response) {
+	                    if (response.session) {
+	                        // logged in and connected user, someone you know
+	                        login();
+	                    }
+	                });
+	            };
+	            (function() {
+	                var e = document.createElement('script');
+	                e.type = 'text/javascript';
+	                e.src = document.location.protocol +
+	                    '//connect.facebook.net/en_US/all.js';
+	                e.async = true;
+	                document.getElementById('fb-root').appendChild(e);
+	            }());
+
+	            function login(){
+	                FB.api('/me', function(response) {
+	                    document.getElementById('login').style.display = "block";
+	                    document.getElementById('login').innerHTML = response.name + " succsessfully logged in!";
+	                });
+	            }
+	            function logout(){
+	                document.getElementById('login').style.display = "none";
+	            }
+
+	            //stream publish method
+	            function streamPublish(name, description, hrefTitle, hrefLink, userPrompt){
+	                FB.ui(
+	                {
+	                    method: 'stream.publish',
+	                    message: '',
+	                    attachment: {
+	                        name: name,
+	                        caption: '',
+	                        description: (description),
+	                        href: hrefLink
+	                    },
+	                    action_links: [
+	                        { text: hrefTitle, href: hrefLink }
+	                    ],
+	                    user_prompt_message: userPrompt
+	                },
+	                function(response) {
+
+	                });
+
+	            }
+	            function showStream(){
+	                FB.api('/me', function(response) {
+	                    //console.log(response.id);
+	                    streamPublish(response.name, 'Testing the publish on FB', 'hrefTitle', 'http://fbremindme.com', "Share fbremindme");
+	                });
+	            }
+
+	            function share(){
+	                var share = {
+	                    method: 'stream.share',
+	                    u: 'http://fbremindme.com/'
+	                };
+
+	                FB.ui(share, function(response) { console.log(response); });
+	            }
+
+	            function graphStreamPublish(){
+	                var body = 'Testing publishing from JavaScript';
+	                FB.api('/me/feed', 'post', { message: body }, function(response) {
+	                    if (!response || response.error) {
+	                        alert('Error occured');
+	                    } else {
+	                        alert('Post ID: ' + response.id);
+	                    }
+	                });
+	            }
+
+	            function fqlQuery(){
+	                FB.api('/me', function(response) {
+	                     var query = FB.Data.query('select name, hometown_location, sex, pic_square from user where uid={0}', response.id);
+	                     query.wait(function(rows) {
+
+	                       document.getElementById('name').innerHTML =
+	                         'Your name: ' + rows[0].name + "<br />" +
+	                         '<img src="' + rows[0].pic_square + '" alt="" />' + "<br />";
+	                     });
+	                });
+	            }
+
+	            function setStatus(){
+	                status1 = document.getElementById('status').value;
+	                FB.api(
+	                  {
+	                    method: 'status.set',
+	                    status: status1
+	                  },
+	                  function(response) {
+	                    if (response == 0){
+	                        alert('Your facebook status not updated. Give Status Update Permission.');
+	                    }
+	                    else{
+	                        alert('Your facebook status updated');
+	                    }
+	                  }
+	                );
+	            }
+	        </script>
+
+	<div id="nav">
+		<div id="fblike">
+			<iframe src="https://www.facebook.com/plugins/like.php?href=http://www.fbremindme.com"
+			        scrolling="no" frameborder="0"
+			        style="border:none; width:450px; height:80px"></iframe>
+			</div>
+
+
+			<p>Remind me</p>
+	<ul>
+		<li>Home</li>
+		<li>About</li>
+		<li>Contact</li>
+	</ul>
+
+	</div>
+
+
+<!--
+	<div id="header">
+
+
+
+	<h1>Welcome to Remind Me</h1>
+	<h2>Set a goal - get your friends to make you do it.</h2>
+	</div>
+
+-->
+
+
+<div id="main">
+
+<h3>Set a goal - get your friends to make you do it.</h3>
+<ul>
+	<li>Say you're going to something</li>
+	<li>Post it to Facebook so all your friends see it</li>
+	<li>We'll post reminders to your wall for you and your friends to see - reminding you to put your money where your mouth is</li>
+	<li>Post your success! Or face the wrath of your friends</li>
+</ul>
+
+<fb:login-button autologoutlink="true" perms="email,user_birthday,status_update,publish_stream"></fb:login-button>
+
+</div>
+
+<div id="submit">
+	<form>
+
+	<h1>What do you want to do?</h1>
+	<br>
+	<label>
+	<span>Goal</span><input id="name" type="text" name="name" />
+	</label>
+
+	<label>
+	<span>Deadline</span><input id="subject" type="text" name="subject" />
+	</label>
+	<label>
+	<span>Message</span><textarea id="feedback" name="feedback"></textarea>
+	<input type="button" value="Submit Form" />
+	</label>
+
+	</form>
+
+</div>
+
+<div id="footer">
+	<p>footer</p>
+</div>
+
+
+
+
+</div>
+    </body>
+ </html>
