@@ -1,26 +1,26 @@
 goal
 ------
-id
+user_id
+goal_id
 name
 desc
-active
+created
+modified
 
 
 goal_status
 ------------
-id
+goal_id
 status
 
 goal_dates
 ----------
-id
+goal_id
 start
 end
 
 
-
-
 user
 ------
-id
+user_id
 email
